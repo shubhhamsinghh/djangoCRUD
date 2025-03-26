@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+{% block title %} Home {% endblock title %}
+{% block content %} 
+<section class="container">
+    <div class="row mt-5 justify-content-around text-center">
+        <h4>CRUD in Python</h4>
+    </div>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-border">
+            <tr>
+              <th>Company</th>
+              <th>Contact</th>
+              <th>Country</th>
+            </tr>
+            <tr>
+              <td>Alfreds Futterkiste</td>
+              <td>Maria Anders</td>
+              <td>Germany</td>
+            </tr>
+            <tr>
+              <td>Centro comercial Moctezuma</td>
+              <td>Francisco Chang</td>
+              <td>Mexico</td>
+            </tr>
+          </table>
+    </div>
+</div>
+</section>
+
+ {% endblock content %}
