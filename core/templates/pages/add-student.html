@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+{% block title %} Add Student {% endblock title %}
+{% block content %}
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'add_student' %}" method="POST">
+                {% csrf_token %}
+                <div class="col-md-8 mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+                </div>
+                <div class="col-md-8 mb-3">
+                    <label for="roll" class="form-label">Roll No:</label>
+                    <input type="text" class="form-control" id="roll" placeholder="Enter Roll No" name="roll">
+                </div>
+                <div class="col-md-8 mb-3">
+                    <label for="city" class="form-label">City:</label>
+                    <input type="text" class="form-control" id="roll" placeholder="Enter City" name="city">
+                </div>
+                <div class="col-md-8 mb-3">
+                    <label for="age" class="form-label">Age:</label>
+                    <input type="text" class="form-control" id="roll" placeholder="Enter age" name="age">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -6,26 +6,37 @@
         <h4>CRUD in Python</h4>
     </div>
 <div class="row">
-    <div class="col-md-8">
+  <div class="col-md-2">
+    <a class="btn btn-primary" href="{% url 'add_student' %}">Add</a>
+  </div>
+  
+    <div class="col-md-12">
         <table class="table table-border">
             <tr>
-              <th>Company</th>
-              <th>Contact</th>
-              <th>Country</th>
+              <th>Name</th>
+              <th>Roll</th>
+              <th>City</th>
+              <th>Age</th>
+              <th>Action</th>
             </tr>
+            {% for d in data %}
             <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
+              <td>{{d.name}}</td>
+              <td>{{d.roll}}</td>
+              <td>{{d.city}}</td>
+              <td>{{d.age}}</td>
+              <td style="display: flex;">
+                <a class="btn btn-warning btn-sm" href="{% url 'edit_student' id=d.id %}">Edit</a>&nbsp;
+                <form action="{% url 'delete_student' %}" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="id" value="{{d.id}}"> 
+                  <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                </form>
+              </td>
             </tr>
-            <tr>
-              <td>Centro comercial Moctezuma</td>
-              <td>Francisco Chang</td>
-              <td>Mexico</td>
-            </tr>
+            {% endfor %}
           </table>
     </div>
 </div>
 </section>
-
  {% endblock content %}
